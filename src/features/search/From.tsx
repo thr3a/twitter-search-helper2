@@ -1,4 +1,4 @@
-import { Button, Center } from '@mantine/core';
+import { Button, Center, Space } from '@mantine/core';
 import { SearchFormProvider, useSearchForm } from './form-context';
 import { WordInput } from '@/features/search/WordInput';
 import { ExcludeWordInput } from '@/features/search/ExcludeWordInput';
@@ -12,8 +12,8 @@ import { SearchProps } from './SearchProps';
 export const SearchForm = () => {
   const form = useSearchForm({
     initialValues: {
-      word: 'アグネスタキオン',
-      excludeWord: 'あああ',
+      word: '',
+      excludeWord: '',
       username: '',
       mediaType: 'none',
       popularType: 'none',
@@ -62,6 +62,7 @@ export const SearchForm = () => {
         <UsernameInput></UsernameInput>
         <MediaTypeSelect></MediaTypeSelect>
         <PopularTypeSelect></PopularTypeSelect>
+        <Space h="md"></Space>
         <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
         <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>
 

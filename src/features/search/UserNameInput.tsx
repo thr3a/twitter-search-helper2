@@ -6,7 +6,9 @@ export const UsernameInput = () => {
   const form = useSearchFormContext();
   return (
     <>
-      <TextInput label="特定ユーザーからのみ" icon={<IconAt size={14} />} {...form.getInputProps('username')} />
+      <div style={{ maxWidth: 400 }}>
+        <TextInput label="特定ユーザーからのみ" icon={<IconAt size={14} />} {...form.getInputProps('username')} />
+      </div>
     </>
   );
 };

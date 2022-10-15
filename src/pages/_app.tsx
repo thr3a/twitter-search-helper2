@@ -27,18 +27,31 @@ export default function App(props: AppProps) {
           fontFamily: '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
           components: {
             TextInput: {
-              styles: {
+              styles: (theme) => ({
                 label: {
-                  fontWeight: "bold"
+                  fontWeight: "bold",
+                },
+                root: {
+                  marginBottom: theme.spacing.xs
                 }
-              }
+              })
             },
             RadioGroup: {
-              styles: {
+              styles: (theme) => ({
                 label: {
                   fontWeight: "bold"
+                },
+                root: {
+                  marginBottom: theme.spacing.xs
                 }
-              }
+              })
+            },
+            Checkbox: {
+              styles: (theme) => ({
+                root: {
+                  marginBottom: theme.spacing.sm
+                }
+              })
             }
           }
         }}
