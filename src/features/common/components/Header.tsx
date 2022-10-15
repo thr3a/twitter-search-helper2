@@ -1,7 +1,7 @@
 export const Header = () => {
   return (
     <>
-      <h1>Create Next App</h1>
+      <h1>Twitter検索ヘルパー</h1>
     </>
   );
 };

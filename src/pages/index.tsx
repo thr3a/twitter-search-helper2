@@ -1,11 +1,10 @@
-import type { NextPage } from 'next';
-import { NextLink } from '@mantine/next';
-import { Button } from '@mantine/core';
+import type { NextPage, InferGetStaticPropsType } from 'next';
+import {SearchForm} from '@/features/search/From';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Button component={NextLink} href="/page2">page2</Button>
+      <SearchForm></SearchForm>
     </>
   );
 };
