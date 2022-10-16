@@ -7,9 +7,21 @@ import { MediaTypeSelect } from '@/features/search/MediaTypeSelect';
 import { PopularTypeSelect } from '@/features/search/PopularTypeSelect';
 import { OnlyFollowerCheckbox } from '@/features/search/OnlyFollowerCheckbox';
 import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
-import { SearchProps } from './SearchProps';
+import { SearchProps } from '@/features/search/SearchProps';
+import { HistoryWords } from '@/features/search/HistoryWords';
+import { useLocalStorage } from '@mantine/hooks';
+import { forwardRef, useCallback, useEffect, useState } from 'react';
+import { usePageContext } from '@/features/common/contexts/PageContext';
 
 export const SearchForm = () => {
+  const context = usePageContext();
+  // const [test, setTest] = useState<string[]>([]);
+  const {searchWords, setSearchWords} = context;
+
+  // useEffect(() => {
+  //   setTest(searchWords);
+  // }, []);
+
   const form = useSearchForm({
     initialValues: {
       word: '',
@@ -23,7 +35,7 @@ export const SearchForm = () => {
   });
 
   const search = (values:SearchProps) => {
-    console.log(values);
+    setSearchWords(x => [...new Set([...x, values.word])]);
 
     const query = [];
     query.push(`${encodeURIComponent(values.word)} OR @DoNotUseUNAME`);
@@ -58,6 +70,7 @@ export const SearchForm = () => {
     <SearchFormProvider form={form}>
       <form onSubmit={form.onSubmit(search)}>
         <WordInput></WordInput>
+        <HistoryWords></HistoryWords>
         <ExcludeWordInput></ExcludeWordInput>
         <UsernameInput></UsernameInput>
         <MediaTypeSelect></MediaTypeSelect>

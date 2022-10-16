@@ -1,25 +1,22 @@
 import { useState, createContext, useContext} from 'react';
 import type {Dispatch, SetStateAction, ReactNode} from 'react';
+import { useLocalStorage } from '@mantine/hooks';
 
 export interface ChildrenProps {
   children: ReactNode
 }
-
 type PageContextType = {
-  name: string,
-  count: number,
-  setName: Dispatch<SetStateAction<string>>,
-  setCount: Dispatch<SetStateAction<number>>
+  searchWords: string[],
+  setSearchWords: Dispatch<SetStateAction<string[]>>,
 }
 
 const PageContext = createContext<PageContextType | undefined>(undefined);
 
 export const PageProvider = ({children} : ChildrenProps) => {
-  const [name, setName] = useState<string>('');
-  const [count, setCount] = useState<number>(0);
+  const [searchWords, setSearchWords] = useLocalStorage<string[]>({key: 'words', defaultValue: []});
 
   return (
-    <PageContext.Provider value={{count,setCount,name,setName}}>
+    <PageContext.Provider value={{searchWords,setSearchWords}}>
       {children}
     </PageContext.Provider>
   );
