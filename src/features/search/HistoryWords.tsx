@@ -8,7 +8,7 @@ export const HistoryWords = () => {
   const context = usePageContext();
   const {searchWords, setSearchWords} = context;
 
-  const hoge = (word: string) => {
+  const deleteHistory = (word: string) => {
     setSearchWords(x => x.filter(x => x !== word));
   };
 
@@ -21,7 +21,7 @@ export const HistoryWords = () => {
   return (
     <>
       {searchWords.map((val, index) => (
-        <HistoryWord word={val} key={index} hoge={hoge}></HistoryWord>
+        <HistoryWord word={val} key={index} deleteHistory={deleteHistory}></HistoryWord>
       ))}
       <div>
         <ClearHistoryButton callback={clearHistory}></ClearHistoryButton>

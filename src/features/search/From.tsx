@@ -15,12 +15,7 @@ import { usePageContext } from '@/features/common/contexts/PageContext';
 
 export const SearchForm = () => {
   const context = usePageContext();
-  // const [test, setTest] = useState<string[]>([]);
   const {searchWords, setSearchWords} = context;
-
-  // useEffect(() => {
-  //   setTest(searchWords);
-  // }, []);
 
   const form = useSearchForm({
     initialValues: {

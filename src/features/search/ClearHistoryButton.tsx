@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core';
 
 type Props = {
-  callback: any;
+  callback: VoidFunction;
 }
 
 export const ClearHistoryButton = ({callback}: Props) => {

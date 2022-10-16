@@ -1,4 +1,4 @@
-import type { NextPage, InferGetStaticPropsType } from 'next';
+import type { NextPage } from 'next';
 import {SearchForm} from '@/features/search/From';
 
 const Home: NextPage = () => {

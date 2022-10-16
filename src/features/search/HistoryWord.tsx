@@ -6,15 +6,15 @@ import { useCallback } from 'react';
 
 type Props = {
   word: string;
-  hoge: any;
+  deleteHistory: (arg0:string) => void;
 }
 
-export const HistoryWord = ({word, hoge}: Props) => {
+export const HistoryWord = ({word, deleteHistory}: Props) => {
   const form = useSearchFormContext();
 
   const callback = useCallback((event: LongPressEvent<Element>) => {
     const word = (event.target as HTMLElement).innerText;
-    hoge(word);
+    deleteHistory(word);
   }, []);
   
   const bind = useLongPress(callback, { threshold: 500 });
