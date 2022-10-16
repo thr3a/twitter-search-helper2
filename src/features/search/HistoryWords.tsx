@@ -1,6 +1,4 @@
 import { HistoryWord } from '@/features/search/HistoryWord';
-import { useLocalStorage, useSetState } from '@mantine/hooks';
-import { useCallback, useEffect, useState } from 'react';
 import { usePageContext } from '@/features/common/contexts/PageContext';
 import { ClearHistoryButton } from '@/features/search/ClearHistoryButton';
 

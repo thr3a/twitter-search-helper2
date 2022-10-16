@@ -9,13 +9,11 @@ import { OnlyFollowerCheckbox } from '@/features/search/OnlyFollowerCheckbox';
 import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
 import { SearchProps } from '@/features/search/SearchProps';
 import { HistoryWords } from '@/features/search/HistoryWords';
-import { useLocalStorage } from '@mantine/hooks';
-import { forwardRef, useCallback, useEffect, useState } from 'react';
 import { usePageContext } from '@/features/common/contexts/PageContext';
 
 export const SearchForm = () => {
   const context = usePageContext();
-  const {searchWords, setSearchWords} = context;
+  const {setSearchWords} = context;
 
   const form = useSearchForm({
     initialValues: {

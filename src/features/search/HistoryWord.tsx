@@ -2,7 +2,6 @@ import { Button } from '@mantine/core';
 import { useLongPress, LongPressEvent } from 'use-long-press';
 import { useSearchFormContext } from './form-context';
 import { useCallback } from 'react';
-// import { useLocalStorage } from '@mantine/hooks';
 
 type Props = {
   word: string;
