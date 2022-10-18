@@ -60,7 +60,7 @@ export const SearchForm = () => {
     if (values.popularType !== 'none') {
       query.push(`min_faves:${values.popularType}`);
     }
-    if(values.endDate !== '') {
+    if(values.endDate !== '' && values.endDate !== null) {
       const endDate = dayjs(values.endDate).format('YYYY-MM-DD');
       query.push(`until:${endDate}`);
     }
