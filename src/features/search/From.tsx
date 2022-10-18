@@ -10,6 +10,8 @@ import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
 import { SearchProps } from '@/features/search/SearchProps';
 import { HistoryWords } from '@/features/search/HistoryWords';
 import { usePageContext } from '@/features/common/contexts/PageContext';
+import { Calendar } from '@/features/search/Calendar';
+import dayjs from 'dayjs';
 
 export const SearchForm = () => {
   const context = usePageContext();
@@ -17,13 +19,14 @@ export const SearchForm = () => {
 
   const form = useSearchForm({
     initialValues: {
-      word: '',
+      word: '正月',
       excludeWord: '',
       username: '',
       mediaType: 'none',
       popularType: 'none',
       onlyFollowerFlag: false,
       onlyJapanese: true,
+      endDate: ''
     },
   });
 
@@ -57,6 +60,10 @@ export const SearchForm = () => {
     if (values.popularType !== 'none') {
       query.push(`min_faves:${values.popularType}`);
     }
+    if(values.endDate !== '') {
+      const endDate = dayjs(values.endDate).format('YYYY-MM-DD');
+      query.push(`until:${endDate}`);
+    }
 
     const url = `https://twitter.com/search?f=live&q=${query.join(' ')}`;
     window.open(url);
@@ -71,6 +78,7 @@ export const SearchForm = () => {
         <UsernameInput></UsernameInput>
         <MediaTypeSelect></MediaTypeSelect>
         <PopularTypeSelect></PopularTypeSelect>
+        <Calendar date={new Date()}></Calendar>
         <Space h="md"></Space>
         <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
         <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>

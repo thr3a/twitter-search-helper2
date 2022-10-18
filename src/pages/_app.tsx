@@ -52,6 +52,13 @@ export default function App(props: AppProps) {
                   marginBottom: theme.spacing.sm
                 }
               })
+            },
+            DatePicker: {
+              styles: (theme) => ({
+                label: {
+                  fontWeight: "bold"
+                }
+              })
             }
           }
         }}

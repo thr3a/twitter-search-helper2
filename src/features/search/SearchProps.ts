@@ -6,4 +6,5 @@ export type SearchProps = {
   popularType: string;
   onlyFollowerFlag: boolean;
   onlyJapanese: boolean;
+  endDate: string;
 }
