@@ -13,7 +13,7 @@ export default function App(props: AppProps) {
     <>
       <Head>
         <title>Twitter検索ヘルパー</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
         <meta name="description" content="Twitterの高度な検索を、より簡単に行えるツールです。" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -32,7 +32,7 @@ export default function App(props: AppProps) {
                   fontWeight: "bold",
                 },
                 root: {
-                  marginBottom: theme.spacing.xs
+                  marginBottom: theme.spacing.xs,
                 }
               })
             },
@@ -57,7 +57,10 @@ export default function App(props: AppProps) {
               styles: (theme) => ({
                 label: {
                   fontWeight: "bold"
-                }
+                },
+                day: {
+                  height: 30
+                },
               })
             }
           }
