@@ -78,7 +78,7 @@ export const SearchForm = () => {
         <UsernameInput></UsernameInput>
         <MediaTypeSelect></MediaTypeSelect>
         <PopularTypeSelect></PopularTypeSelect>
-        <Calendar date={new Date()}></Calendar>
+        <Calendar></Calendar>
         <Space h="md"></Space>
         <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
         <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>
