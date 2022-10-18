@@ -42,8 +42,11 @@ export const SearchForm = () => {
     if (values.onlyJapanese) {
       query.push('lang:ja');
     }
-    if (values.mediaType === 'image_movie') {
-      query.push('filter:media');
+    if (values.mediaType === 'image') {
+      query.push('filter:twimg');
+    }
+    if (values.mediaType === 'movie') {
+      query.push('filter:consumer_video');
     }
     if (values.mediaType === 'include_url') {
       query.push('filter:links -filter:media');
