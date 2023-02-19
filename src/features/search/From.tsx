@@ -31,11 +31,15 @@ export const SearchForm = () => {
   });
 
   const search = (values:SearchProps) => {
-    setSearchWords(x => [...new Set([...x, values.word])]);
+    if(values.word) {
+      setSearchWords(x => [...new Set([...x, values.word])]);
+    }
 
     const query = [];
     query.push(`${encodeURIComponent(values.word)} OR @DoNotUseUNAME`);
-    query.push(`-${encodeURIComponent(values.excludeWord)}`);
+    if(values.excludeWord) {
+      query.push(`-${encodeURIComponent(values.excludeWord)}`);
+    }
     if(values.username) {
       query.push(`from:${values.username}`);
     }
