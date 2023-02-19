@@ -36,7 +36,7 @@ export const SearchForm = () => {
     }
 
     const query = [];
-    query.push(`${encodeURIComponent(values.word)} OR @DoNotUseUNAME`);
+    query.push(`${encodeURIComponent(values.word)} OR @i -@i`);
     if(values.excludeWord) {
       query.push(`-${encodeURIComponent(values.excludeWord)}`);
     }
