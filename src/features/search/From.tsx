@@ -19,7 +19,7 @@ export const SearchForm = () => {
 
   const form = useSearchForm({
     initialValues: {
-      word: '正月',
+      word: '',
       excludeWord: '',
       username: '',
       mediaType: 'none',
