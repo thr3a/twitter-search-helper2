@@ -87,7 +87,13 @@ export const SearchForm = () => {
         <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
         <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>
 
-        <Center style={{ width: "100%", height: "auto" }}>
+        <Center
+          sx={(theme) => ({
+            width: "100%",
+            height: "auto",
+            paddingBottom: theme.spacing.xl,
+          })}
+        >
           <Button type="submit" size="md">検索</Button>
         </Center>
 
