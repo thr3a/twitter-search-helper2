@@ -31,12 +31,13 @@ export const SearchForm = () => {
   });
 
   const search = (values:SearchProps) => {
+    const query = [];
+
     if(values.word) {
       setSearchWords(x => [...new Set([...x, values.word])]);
+      query.push(`${encodeURIComponent(values.word)} OR @i -@i`);
     }
 
-    const query = [];
-    query.push(`${encodeURIComponent(values.word)} OR @i -@i`);
     if(values.excludeWord) {
       query.push(`-${encodeURIComponent(values.excludeWord)}`);
     }
