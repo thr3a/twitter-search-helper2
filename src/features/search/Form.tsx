@@ -35,7 +35,7 @@ export const SearchForm = () => {
 
     if(values.word) {
       setSearchWords(x => [...new Set([...x, values.word])]);
-      query.push(`${encodeURIComponent(values.word)} OR @i -@i`);
+      query.push(encodeURIComponent(values.word));
     }
 
     if(values.excludeWord) {
