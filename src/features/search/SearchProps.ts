@@ -7,4 +7,5 @@ export type SearchProps = {
   onlyFollowerFlag: boolean;
   onlyJapanese: boolean;
   endDate: string;
+  excludeBlue: boolean;
 }

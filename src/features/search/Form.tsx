@@ -7,6 +7,7 @@ import { MediaTypeSelect } from '@/features/search/MediaTypeSelect';
 import { PopularTypeSelect } from '@/features/search/PopularTypeSelect';
 import { OnlyFollowerCheckbox } from '@/features/search/OnlyFollowerCheckbox';
 import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
+import { ExcludeBlueCheckbox } from '@/features/search/ExcludeBlueCheckbox';
 import { SearchProps } from '@/features/search/SearchProps';
 import { HistoryWords } from '@/features/search/HistoryWords';
 import { usePageContext } from '@/features/common/contexts/PageContext';
@@ -26,6 +27,7 @@ export const SearchForm = () => {
       popularType: 'none',
       onlyFollowerFlag: false,
       onlyJapanese: true,
+      excludeBlue: false,
       endDate: ''
     },
   });
@@ -69,6 +71,9 @@ export const SearchForm = () => {
       const endDate = dayjs(values.endDate).format('YYYY-MM-DD');
       query.push(`until:${endDate}`);
     }
+    if(values.excludeBlue) {
+      query.push('-filter:blue_verified');
+    }
     query.push('-source:Twitter_for_Advertisers');
 
     const url = `https://twitter.com/search?f=live&q=${query.join(' ')}`;
@@ -88,6 +93,7 @@ export const SearchForm = () => {
         <Space h="md"></Space>
         <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
         <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>
+        <ExcludeBlueCheckbox></ExcludeBlueCheckbox>
 
         <Center
           sx={(theme) => ({
