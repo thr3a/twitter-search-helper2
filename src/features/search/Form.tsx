@@ -69,6 +69,7 @@ export const SearchForm = () => {
       const endDate = dayjs(values.endDate).format('YYYY-MM-DD');
       query.push(`until:${endDate}`);
     }
+    query.push('-source:Twitter_for_Advertisers');
 
     const url = `https://twitter.com/search?f=live&q=${query.join(' ')}`;
     window.open(url);
@@ -95,7 +96,7 @@ export const SearchForm = () => {
             paddingBottom: theme.spacing.xl,
           })}
         >
-          <Button type="submit" size="md">検索</Button>
+          <Button type="submit" size="md" mb={'xl'}>検索</Button>
         </Center>
 
       </form>
