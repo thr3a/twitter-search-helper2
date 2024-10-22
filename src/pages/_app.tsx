@@ -1,10 +1,10 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
-import { Header } from '../features/common/components/Header';
 import { Container } from '@mantine/core';
-import { PageProvider } from '../features/common/contexts/PageContext';
 import { NotificationsProvider } from '@mantine/notifications';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { Header } from '../features/common/components/Header';
+import { PageProvider } from '../features/common/contexts/PageContext';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -13,9 +13,9 @@ export default function App(props: AppProps) {
     <>
       <Head>
         <title>Twitter検索ヘルパー</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
-        <meta name="description" content="Twitterの高度な検索を、より簡単に行えるツールです。" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no' />
+        <meta name='description' content='Twitterの高度な検索を、より簡単に行えるツールです。' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <MantineProvider
@@ -29,17 +29,17 @@ export default function App(props: AppProps) {
             TextInput: {
               styles: (theme) => ({
                 label: {
-                  fontWeight: "bold",
+                  fontWeight: 'bold'
                 },
                 root: {
-                  marginBottom: theme.spacing.xs,
+                  marginBottom: theme.spacing.xs
                 }
               })
             },
             RadioGroup: {
               styles: (theme) => ({
                 label: {
-                  fontWeight: "bold"
+                  fontWeight: 'bold'
                 },
                 root: {
                   marginBottom: theme.spacing.xs
@@ -56,11 +56,11 @@ export default function App(props: AppProps) {
             DatePicker: {
               styles: (theme) => ({
                 label: {
-                  fontWeight: "bold"
+                  fontWeight: 'bold'
                 },
                 day: {
                   height: 30
-                },
+                }
               })
             }
           }
@@ -69,7 +69,7 @@ export default function App(props: AppProps) {
         <NotificationsProvider>
           <PageProvider>
             <Container>
-              <Header></Header>
+              <Header />
               <Component {...pageProps} />
             </Container>
           </PageProvider>

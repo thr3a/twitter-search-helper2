@@ -8,4 +8,4 @@ export type SearchProps = {
   onlyJapanese: boolean;
   endDate: string;
   excludeBlue: boolean;
-}
+};

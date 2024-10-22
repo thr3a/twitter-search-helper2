@@ -5,10 +5,7 @@ export const OnlyJapaneseCheckbox = () => {
   const form = useSearchFormContext();
   return (
     <>
-      <Checkbox
-        label="日本語ツイートのみ"
-        {...form.getInputProps('onlyJapanese', { type: 'checkbox' })}
-      />
+      <Checkbox label='日本語ツイートのみ' {...form.getInputProps('onlyJapanese', { type: 'checkbox' })} />
     </>
   );
 };

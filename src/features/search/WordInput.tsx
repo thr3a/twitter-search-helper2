@@ -5,7 +5,7 @@ export const WordInput = () => {
   const form = useSearchFormContext();
   return (
     <>
-      <TextInput label="検索ワード" {...form.getInputProps('word')} />
+      <TextInput label='検索ワード' {...form.getInputProps('word')} />
     </>
   );
 };

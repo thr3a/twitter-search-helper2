@@ -6,7 +6,7 @@ export const OnlyFollowerCheckbox = () => {
   return (
     <>
       <Checkbox
-        label="フォローしているユーザーのみ"
+        label='フォローしているユーザーのみ'
         {...form.getInputProps('onlyFollowerFlag', { type: 'checkbox' })}
       />
     </>

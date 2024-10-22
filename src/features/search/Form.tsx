@@ -1,22 +1,22 @@
-import { Button, Center, Space } from '@mantine/core';
-import { SearchFormProvider, useSearchForm } from './form-context';
-import { WordInput } from '@/features/search/WordInput';
-import { ExcludeWordInput } from '@/features/search/ExcludeWordInput';
-import { UsernameInput } from '@/features/search/UserNameInput';
-import { MediaTypeSelect } from '@/features/search/MediaTypeSelect';
-import { PopularTypeSelect } from '@/features/search/PopularTypeSelect';
-import { OnlyFollowerCheckbox } from '@/features/search/OnlyFollowerCheckbox';
-import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
-import { ExcludeBlueCheckbox } from '@/features/search/ExcludeBlueCheckbox';
-import { SearchProps } from '@/features/search/SearchProps';
-import { HistoryWords } from '@/features/search/HistoryWords';
 import { usePageContext } from '@/features/common/contexts/PageContext';
 import { Calendar } from '@/features/search/Calendar';
+import { ExcludeBlueCheckbox } from '@/features/search/ExcludeBlueCheckbox';
+import { ExcludeWordInput } from '@/features/search/ExcludeWordInput';
+import { HistoryWords } from '@/features/search/HistoryWords';
+import { MediaTypeSelect } from '@/features/search/MediaTypeSelect';
+import { OnlyFollowerCheckbox } from '@/features/search/OnlyFollowerCheckbox';
+import { OnlyJapaneseCheckbox } from '@/features/search/OnlyJapaneseCheckbox';
+import { PopularTypeSelect } from '@/features/search/PopularTypeSelect';
+import type { SearchProps } from '@/features/search/SearchProps';
+import { UsernameInput } from '@/features/search/UserNameInput';
+import { WordInput } from '@/features/search/WordInput';
+import { Button, Center, Space } from '@mantine/core';
 import dayjs from 'dayjs';
+import { SearchFormProvider, useSearchForm } from './form-context';
 
 export const SearchForm = () => {
   const context = usePageContext();
-  const {setSearchWords} = context;
+  const { setSearchWords } = context;
 
   const form = useSearchForm({
     initialValues: {
@@ -29,21 +29,21 @@ export const SearchForm = () => {
       onlyJapanese: true,
       excludeBlue: false,
       endDate: ''
-    },
+    }
   });
 
-  const search = (values:SearchProps) => {
+  const search = (values: SearchProps) => {
     const query = [];
 
-    if(values.word) {
-      setSearchWords(x => [...new Set([...x, values.word])]);
+    if (values.word) {
+      setSearchWords((x) => [...new Set([...x, values.word])]);
       query.push(encodeURIComponent(values.word));
     }
 
-    if(values.excludeWord) {
+    if (values.excludeWord) {
       query.push(`-${encodeURIComponent(values.excludeWord)}`);
     }
-    if(values.username) {
+    if (values.username) {
       query.push(`from:${values.username}`);
     }
     if (values.onlyFollowerFlag) {
@@ -67,11 +67,11 @@ export const SearchForm = () => {
     if (values.popularType !== 'none') {
       query.push(`min_faves:${values.popularType}`);
     }
-    if(values.endDate !== '' && values.endDate !== null) {
+    if (values.endDate !== '' && values.endDate !== null) {
       const endDate = dayjs(values.endDate).format('YYYY-MM-DD');
       query.push(`until:${endDate}`);
     }
-    if(values.excludeBlue) {
+    if (values.excludeBlue) {
       query.push('-filter:blue_verified');
     }
     query.push('-source:Twitter_for_Advertisers');
@@ -83,28 +83,29 @@ export const SearchForm = () => {
   return (
     <SearchFormProvider form={form}>
       <form onSubmit={form.onSubmit(search)}>
-        <WordInput></WordInput>
-        <HistoryWords></HistoryWords>
-        <ExcludeWordInput></ExcludeWordInput>
-        <UsernameInput></UsernameInput>
-        <MediaTypeSelect></MediaTypeSelect>
-        <PopularTypeSelect></PopularTypeSelect>
-        <Calendar></Calendar>
-        <Space h="md"></Space>
-        <OnlyFollowerCheckbox></OnlyFollowerCheckbox>
-        <OnlyJapaneseCheckbox></OnlyJapaneseCheckbox>
-        <ExcludeBlueCheckbox></ExcludeBlueCheckbox>
+        <WordInput />
+        <HistoryWords />
+        <ExcludeWordInput />
+        <UsernameInput />
+        <MediaTypeSelect />
+        <PopularTypeSelect />
+        <Calendar />
+        <Space h='md' />
+        <OnlyFollowerCheckbox />
+        <OnlyJapaneseCheckbox />
+        <ExcludeBlueCheckbox />
 
         <Center
           sx={(theme) => ({
-            width: "100%",
-            height: "auto",
-            paddingBottom: theme.spacing.xl,
+            width: '100%',
+            height: 'auto',
+            paddingBottom: theme.spacing.xl
           })}
         >
-          <Button type="submit" size="md" mb={'xl'}>検索</Button>
+          <Button type='submit' size='md' mb={'xl'}>
+            検索
+          </Button>
         </Center>
-
       </form>
     </SearchFormProvider>
   );

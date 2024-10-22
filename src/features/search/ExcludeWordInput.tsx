@@ -5,7 +5,7 @@ export const ExcludeWordInput = () => {
   const form = useSearchFormContext();
   return (
     <>
-      <TextInput label="除外ワード" {...form.getInputProps('excludeWord')} />
+      <TextInput label='除外ワード' {...form.getInputProps('excludeWord')} />
     </>
   );
 };
