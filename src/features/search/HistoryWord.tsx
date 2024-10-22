@@ -11,10 +11,13 @@ type Props = {
 export const HistoryWord = ({ word, deleteHistory }: Props) => {
   const form = useSearchFormContext();
 
-  const callback = useCallback((event: LongPressEvent<Element>) => {
-    const word = (event.target as HTMLElement).innerText;
-    deleteHistory(word);
-  }, []);
+  const callback = useCallback(
+    (event: LongPressEvent<Element>) => {
+      const word = (event.target as HTMLElement).innerText;
+      deleteHistory(word);
+    },
+    [deleteHistory]
+  );
 
   const bind = useLongPress(callback, { threshold: 500 });
 
