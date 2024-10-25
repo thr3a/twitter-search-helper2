@@ -1,9 +1,12 @@
 import { usePageContext } from '@/features/common/contexts/PageContext';
 import { ClearHistoryButton } from '@/features/search/ClearHistoryButton';
 import { HistoryWord } from '@/features/search/HistoryWord';
+import { RandomTweetButton } from '@/features/search/RandomTweetButton';
+import { useSearchFormContext } from './form-context';
 
 export const HistoryWords = () => {
   const context = usePageContext();
+  const form = useSearchFormContext();
   const { searchWords, setSearchWords } = context;
 
   const deleteHistory = (word: string) => {
@@ -23,6 +26,11 @@ export const HistoryWords = () => {
       ))}
       <div>
         <ClearHistoryButton callback={clearHistory} />
+        <RandomTweetButton
+          callback={() => {
+            form.setValues({ word: '-iaoufdsgipfuaopfhaf' });
+          }}
+        />
       </div>
     </>
   );

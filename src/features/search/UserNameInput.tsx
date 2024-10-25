@@ -1,5 +1,5 @@
 import { TextInput } from '@mantine/core';
-import { IconAt } from '@tabler/icons';
+import { IconAt } from '@tabler/icons-react';
 import { useSearchFormContext } from './form-context';
 
 export const UsernameInput = () => {
