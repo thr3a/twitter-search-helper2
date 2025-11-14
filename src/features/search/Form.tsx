@@ -74,7 +74,7 @@ export const SearchForm = () => {
     if (values.excludeBlue) {
       query.push('-filter:blue_verified');
     }
-    query.push('-source:Twitter_for_Advertisers');
+    // query.push('-source:Twitter_for_Advertisers');
 
     const url = `https://twitter.com/search?f=live&q=${query.join(' ')}`;
     window.open(url);
